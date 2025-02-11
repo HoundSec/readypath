@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify, redirect
 from utils import *
-from dbms import DBMS
+from dbm import DBM
 
 app = Flask(__name__)
 
@@ -14,7 +14,7 @@ def api():
     url = data.get('url')
     ip_address = request.remote_addr
     host = request.host
-    db = DBMS()
+    db = DBM()
     shortURL = ""
     while(True):
         token = generate_token()
@@ -29,7 +29,7 @@ def api():
 
 @app.route('/<token>', methods=['GET'])
 def redirection(token):
-    db = DBMS()
+    db = DBM()
     url = db.get_url(token)
     return redirect(url, code=301)
 

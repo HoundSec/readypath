@@ -1,10 +1,11 @@
 from pymongo import MongoClient
 from datetime import datetime, timezone
+from os import getenv
 
-class DBMS:
+class DBM:
     def __init__(self):
         # Initialize connection to MongoDB and create 'URLs' collection if not exists.
-        self.client = MongoClient("mongodb://localhost:27017/")
+        self.client = MongoClient(getenv("MONGO_URI",default="mongodb://mongo:27017/"))
         self.db = self.client["readypath"]  # Database name
         self.collection = self.db["URLs"]  # Collection name
 
