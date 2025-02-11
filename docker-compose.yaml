@@ -1,0 +1,16 @@
+services:
+  flask-app:
+    build:
+      context: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:latest
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
