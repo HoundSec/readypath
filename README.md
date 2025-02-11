@@ -84,7 +84,7 @@ ReadyPath is a simple and efficient URL shortener that transforms long URLs into
 ## API Usage
 
 ### Request
-Send a POST request to the `/shorten` endpoint with the following JSON payload:
+Send a POST request to the `/api` endpoint with the following JSON payload:
 ```json
 {
   "url": "https://houndsec.net/"
