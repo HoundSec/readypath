@@ -1,8 +1,16 @@
-from flask import Flask, request, jsonify, redirect
+from flask import Flask, request, jsonify, redirect, render_template
 from utils import *
 from dbm import DBM
 
 app = Flask(__name__)
+
+@app.route('/', methods=['GET'])
+def home():
+    return render_template("home.html")
+
+@app.route('/terms', methods=['GET'])
+def terms():
+    return render_template("terms.html")
 
 @app.route('/api', methods=['POST'])
 def api():

@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block title %}Home - ReadyPath{% endblock %}
+{% block content %}
+<div class="form-container">
+  <form id="shorten-form" method="post">
+    <input type="url" name="url" id="url-input" placeholder="Enter your URL here" required>
+    <button type="submit">Shorten</button>
+  </form>
+  <!-- Container to dynamically insert loading and result elements -->
+  <div id="response-container"></div>
+</div>
+
+<script>
+  const form = document.getElementById('shorten-form');
+  const responseContainer = document.getElementById('response-container');
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    // Clear previous content in the response container.
+    responseContainer.innerHTML = '';
+    
+    // Create and show the loading indicator.
+    const loadingDiv = document.createElement('div');
+    loadingDiv.id = 'loading';
+    loadingDiv.innerHTML = '<p>Loading...</p>';
+    responseContainer.appendChild(loadingDiv);
+
+    const url = document.getElementById('url-input').value;
+
+    try {
+      const response = await fetch('/api', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ url: url })
+      });
+      const data = await response.json();
+
+      // Remove the loading indicator.
+      responseContainer.innerHTML = '';
+
+      if (data.shortURL) {
+        // Create the result box element dynamically.
+        const resultBox = document.createElement('div');
+        resultBox.id = 'result-box';
+        resultBox.innerHTML = `
+          <input
+            type="text"
+            id="short-url"
+            readonly
+            value="${data.shortURL}"
+            onfocus="this.blur()"  <!-- Prevent focus highlight on click -->
+          <button id="copy-button" type="button">Copy</button>
+        `;
+        responseContainer.appendChild(resultBox);
+
+        // Add event listener for the copy button.
+        document.getElementById('copy-button').addEventListener('click', async function() {
+          const shortURLInput = document.getElementById('short-url');
+
+          try {
+            // Use the modern Clipboard API if available
+            await navigator.clipboard.writeText(shortURLInput.value);
+          } catch (err) {
+            // Fallback to the older approach
+            shortURLInput.select();
+            document.execCommand('copy');
+            // Remove text selection highlight
+            window.getSelection().removeAllRanges();
+          }
+
+          // Show "Copied!" indicator
+          const copyButton = this;
+          copyButton.textContent = "Copied!";
+          setTimeout(() => {
+            copyButton.textContent = "Copy";
+          }, 2000);
+        });
+      }
+    } catch (err) {
+      console.error('Error shortening URL:', err);
+      responseContainer.innerHTML = '<p>Error shortening URL. Please try again.</p>';
+    }
+  });
+</script>
+{% endblock %}
