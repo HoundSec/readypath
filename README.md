@@ -11,6 +11,34 @@ ReadyPath is a simple and efficient URL shortener that transforms long URLs into
 
 ---
 
+---
+
+## Live API (Beta Deployment)  
+
+The ReadyPath API is currently live and hosted at **[readypath.houndsec.net](https://readypath.houndsec.net)** for testing. You can try the API without setting up anything locally.  
+
+To shorten a URL, send a `POST` request to:  
+```
+https://readypath.houndsec.net/api
+```
+With the following JSON payload:
+```json
+{
+  "url": "https://houndsec.net/"
+}
+```
+The response will return a shortened URL:
+```json
+{
+  "shortURL": "readypath.houndsec.net/wise-cheetah"
+}
+```
+that you can use immediately.  
+
+Since this is a **beta deployment**, occasional downtime or changes might occur. Feel free to test and provide feedback! 
+
+---
+
 ## Technologies Used
 - **Backend**: Flask (Python)
 - **Database**: MongoDB (for URL storage) and SQLite (for token generation)
