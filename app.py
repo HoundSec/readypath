@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, redirect, render_template
+from flask import Flask, request, jsonify, redirect, render_template, abort
 from utils import *
 from dbm import DBM
 
@@ -39,6 +39,8 @@ def api():
 def redirection(token):
     db = DBM()
     url = db.get_url(token)
+    if url == None:
+        return abort(404)
     return redirect(url, code=301)
 
 if __name__ == '__main__':
