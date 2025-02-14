@@ -1,25 +1,29 @@
 # ReadyPath - URL Shortener
 
-ReadyPath is a simple and efficient URL shortener that transforms long URLs into short, readable links like `domain.com/sophisticated-Crow`. Built with **Flask**, **MongoDB**, and containerized using **Docker** and **Docker Compose**, ReadyPath is designed to be easy to set up and use. It currently operates as an API, with the potential for a frontend interface in the future.
+![image](https://github.com/user-attachments/assets/43735c0b-8572-40f2-928d-277e3750eafd)
+
+
+ReadyPath is a simple and efficient URL shortener that transforms long URLs into short, readable links like `rp.houndsec.net/subtle-Lion`. Built with **Flask**, **MongoDB**, and containerized using **Docker** and **Docker Compose**, ReadyPath is designed to be easy to set up and use.
+
+Access it at: **[rp.houndsec.net](https://rp.houndsec.net)** 
 
 ---
 
 ## Features
-- **Short, Readable URLs**: Converts long URLs into short, human-readable links (e.g., `readyPath_domain/sophisticated-Crow`).
+- **Short, Readable URLs**: Converts long URLs into short, human-readable links (e.g., `rp.houndsec.net/sophisticated-Crow`).
 - **API-Based**: Accepts JSON input and returns the shortened URL in JSON format.
 - **Containerized**: Easily deployable using Docker and Docker Compose.
 
 ---
 
----
 
-## Live API (Beta Deployment)  
+## Access Free API 
 
-The ReadyPath API is currently live and hosted at **[readypath.houndsec.net](https://readypath.houndsec.net)** for testing. You can try the API without setting up anything locally.  
+The ReadyPath API is live and hosted at **[rp.houndsec.net](https://rp.houndsec.net)** 
 
 To shorten a URL, send a `POST` request to:  
 ```
-https://readypath.houndsec.net/api
+https://rp.houndsec.net/api
 ```
 With the following JSON payload:
 ```json
@@ -30,13 +34,11 @@ With the following JSON payload:
 The response will return a shortened URL:
 ```json
 {
-  "shortURL": "readypath.houndsec.net/wise-cheetah"
+  "shortURL": "rp.houndsec.net/subtle-Lion"
 }
 ```
-that you can use immediately.  
-
-Since this is a **beta deployment**, occasional downtime or changes might occur. Feel free to test and provide feedback! 
-
+ 
+ 
 ---
 
 ## Technologies Used
