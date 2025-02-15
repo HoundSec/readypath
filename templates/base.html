@@ -1,32 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% block title %}ReadyPath{% endblock %}</title>
-  
-  <!-- Basic SEO Meta Tags -->
-  <meta name="description" content="A simple and efficient URL shortener that transforms long URLs into short, readable links." />
-  <meta name="keywords" content="URL shortener, ReadyPath, link shortener, short URL" />
-  
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://rp.houndsec.net" />
-  <meta property="og:title" content="ReadyPath - URL Shortener" />
-  <meta property="og:description" content="Transform long URLs into short, readable links with ReadyPath. Quick, easy, and free!" />
-  <meta property="og:image" content="{{ url_for('static', filename='preview.jpg', _external=True) }}" />
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:url" content="https://rp.houndsec.net" />
-  <meta name="twitter:title" content="ReadyPath - URL Shortener" />
-  <meta name="twitter:description" content="Transform long URLs into short, readable links with ReadyPath. Quick, easy, and free!" />
-  <meta name="twitter:image" content="{{ url_for('static', filename='preview.jpg', _external=True) }}" />
-  <meta name="twitter:image" content="{{ url_for('static', filename='favicon.png') }}">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.png') }}">
+  <title>{{title}}</title>
+  <meta property="og:title" content="{{title}}">
+  <meta property="og:site_name" content="ReadyPath">
+  <meta property="og:type" content="website">
+  <meta name="description" content="{{description}}">
+  <meta property="og:description" content="{{description}}">
+  <meta property="og:image" content="{{ url_for('static', filename='preview.png') }}">
+  <meta property="og:url" content="{{url}}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{title}}">
+  <meta name="twitter:description" content="{{description}}">
+  <meta name="twitter:image" content="{{ url_for('static', filename='favicon.png') }}">
 </head>
+
 <body>
   <nav class="navbar">
     <div class="navbar-brand">
@@ -41,4 +34,5 @@
     {% block content %}{% endblock %}
   </div>
 </body>
+
 </html>
