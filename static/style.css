@@ -164,6 +164,6 @@ body {
   border-radius: 10px;
   box-shadow: 0 2px 10px var(--box-shadow-color);
   max-width: 600px;
-  text-align: center;
+  text-align: left;
   color: var(--text-color);
 }
