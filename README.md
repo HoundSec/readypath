@@ -1,6 +1,8 @@
 # ReadyPath - URL Shortener
 
-![image](https://github.com/user-attachments/assets/43735c0b-8572-40f2-928d-277e3750eafd)
+![screely-1740485178592](https://github.com/user-attachments/assets/28174f04-e36a-4182-9315-3bc4885cb287)
+
+![screely-1740485052280](https://github.com/user-attachments/assets/76bb9433-b6fc-45ef-8ba2-ae707daf9e72)
 
 
 ReadyPath is a simple and efficient URL shortener that transforms long URLs into short, readable links like `rp.houndsec.net/subtle-Lion`. Built with **Flask**, **MongoDB**, and containerized using **Docker** and **Docker Compose**, ReadyPath is designed to be easy to set up and use.
