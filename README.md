@@ -148,12 +148,12 @@ services:
       - "8000:8000"
     depends_on:
       - mongo
-
+    restart: always
   mongo:
     image: mongo:latest
     volumes:
       - mongo-data:/data/db
-
+    restart: always
 volumes:
   mongo-data:
 ```
